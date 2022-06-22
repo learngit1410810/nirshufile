@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+ name: mydeployment
+spec:
+ replicas: 3
+ selector:
+   tag: demo
+ template:
+   metadata:
+      name: testpod
+      labels:
+        tag: demo
+   spec: 
+     containers:
+        - name: cont1
+          image: ubuntu
+          command: ["/bin/bash","-C","while true;do echo Hello India;sleep 5;done"]
+
